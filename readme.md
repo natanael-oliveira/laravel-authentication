@@ -1,27 +1,53 @@
-# Laravel PHP Framework
+## LARAVEL 5.2 - AUTHENTICATION
+---
+## Requisitos
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+ * `PHP 5.6` 
+ * `Composer`
+ * `npm` ou `yarn`
+ * `MySQL`, `PgSQL`, ou outro banco de dados 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Instalacao do projeto
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+ 1. Clona o repositorio:
+ ~~~JS
+  git clone https://github.com/natanael-oliveira/laravel-authentication.git
+ ~~~
+ 2. Acesse a pasta do projeto e baixe os pacotes de dependencias:
+ ~~~JS
+  cd laravel-authentication
+ ~~~
+ ~~~JS
+  composer install && yarn install
+ ~~~
+ 3. Copie o arquivo `.env.example` e renomei-o para `.env`
+ ~~~JS
+  cp .env.example .env
+ ~~~
+ 4. Configure o arquivo `.env` de acordo com o ambiente do seu banco de dados:
+ ~~~JS
+ //...
 
-## Official Documentation
+APP_URL=http://localhost
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+DB_CONNECTION=pgsql // mysql, etc.  
+DB_HOST=postgres
+DB_PORT=5432
+DB_DATABASE=laravel_authentication
+DB_USERNAME=root
+DB_PASSWORD=root
 
-## Contributing
+//...
+ ~~~
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+5. Execute o comando a seguir para gerar a chave `APP_KEY` da aplicacao:
+~~~
+ php artisan key:generate
+~~~
 
-## Security Vulnerabilities
+6. Em seguida inicie um servidor local para executar a aplicacao:
+~~~JS
+ php artisan serve
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+ // acesse no brawser http://localhost:8080
+~~~
