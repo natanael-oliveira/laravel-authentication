@@ -17,10 +17,15 @@ class AdminController extends Controller
     }
     public function index()
     {
-        dd(auth()->guard('admin')->user());
+        // dd(auth()->guard('admin')->user());
+        return redirect()->route('admin.dashboard');
     }
     public function formLogin()
     {
+        if (!auth()->guard('admin')->guest()) {
+            return redirect()->route('admin.dashboard');
+        }
+
         return view('admin.auth.login');
     }
     public function login(Request $request)
@@ -75,5 +80,6 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
+        return view('admin.pages.dashboard');
     }
 }
