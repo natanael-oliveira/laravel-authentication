@@ -12,6 +12,14 @@ Route::group(['middleware' => 'admin', 'prefix' => '/admin'], function () {
     });
     Route::post('/login', 'AdminController@login')->name('admin.login');
     Route::get('/login', 'AdminController@formlogin')->name('admin.formlogin');
-    Route::post('/register', 'AdminController@formRegister')->name('admin.formRegister');
+    Route::get('/register', 'AdminController@formRegister')->name('admin.formRegister');
+    Route::post('/register', 'AdminController@register')->name('admin.register');
     Route::get('/logout', 'AdminController@logout')->name('admin.logout');
 });
+
+Route::get('/login/facebook', 'SocialiteController@redirectToProvider')->name('login.facebook');
+Route::get('/login/facebook/callback', 'SocialiteController@handleProviderCallback')->name('login.facebook.callback');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
