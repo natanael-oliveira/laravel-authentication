@@ -31,11 +31,11 @@
 APP_URL=http://localhost
 
 DB_CONNECTION=pgsql // mysql, etc.  
-DB_HOST=postgres
+DB_HOST=127.0.0.1
 DB_PORT=5432
-DB_DATABASE=laravel_authentication
-DB_USERNAME=root
-DB_PASSWORD=root
+DB_DATABASE=db_name
+DB_USERNAME=username
+DB_PASSWORD=secret
 
 //...
  ~~~
